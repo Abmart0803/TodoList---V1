@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>My Todolist</title>
 </head>
 <body>
 
-  <h1> <%= kindOfDay %> </h1>
+  <div class="box" id="heading">
 
-  <ul>
-    <li>Buy Food</li>
-    <li>Cook Food</li>
-    <li>Eat Food</li>
-  </ul>
+    <h1> <%= listTitle %> </h1>
 
-  <form action="/" method="post">
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
-  </form>
-  
-    
+  </div>
+
+  <div class="box">
+      <!-- //this line of code will be adding the new list items to our declare items once input from server. -->
+      <% for (var i = 0; i < newListItems.length; i ++) { %>
+        <div class="item">
+          <input type="checkbox">
+          <p> <%= newListItems[i] %> </p>
+        </div>
+        
+      <% } %>
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value=<%= listTitle %> >+</button>
+      </form>
+
+  </div>  
 </body>
 </html>
